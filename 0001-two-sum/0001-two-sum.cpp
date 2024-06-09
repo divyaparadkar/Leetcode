@@ -1,27 +1,21 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        map<int, int> cache;
-        vector<int> ans;
-        
-        for(int i =0; i< nums.size(); i++){
-            int num= target -nums[i];
-            
-            if(cache.find(num)!= cache.end())
+    int n=nums.size();
+    int x,y;
+        vector<int>v;
+        for(int i=0;i<n-1;i++)
+        {
+            for(int j=i+1;j<n;j++)
             {
-                ans.push_back(cache[num]);
-                ans.push_back(i);
-                return ans;
-            }
-            
-            else{
-                cache.insert(make_pair(nums[i],i));
+                if(nums[i]+nums[j]==target)
+                {
+                    v.push_back(i);
+                    v.push_back(j);
+                }
             }
         }
-        
-        return ans;
-        
-        
+        return v;
     }
-
 };
+    
